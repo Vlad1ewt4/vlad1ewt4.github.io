@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050505" />
+    <title>HYPE Mobile App Demo</title>
+    <script>
+      if (new URLSearchParams(location.search).get("embed") === "1") {
+        document.documentElement.dataset.embed = "true";
+      }
+    </script>
+    <link rel="stylesheet" href="./hype-app.css" />
+    <script src="./hype-app.js" defer></script>
+  </head>
+  <body>
+    <a class="mobile-close" href="./case.html?id=hype" aria-label="Вернуться к кейсу" data-close-demo>К кейсу</a>
+    <main class="prototype-layout">
+      <aside class="prototype-panel">
+        <a class="back-link" href="./case.html?id=hype">Back to case</a>
+        <div>
+          <p>Clickable visual demo</p>
+          <h1>HYPE Mobile App</h1>
+          <span>Event discovery, tickets, checkout, profiles, feed, and messages. The demo uses Figma PNG screens with clickable areas.</span>
+        </div>
+        <nav class="screen-list" id="screen-list" aria-label="Demo screens"></nav>
+      </aside>
+
+      <section class="phone-stage" aria-label="HYPE app working demo">
+        <div class="phone-device">
+          <div class="phone-scroll" id="phone-scroll">
+            <div class="screen-canvas" id="screen-canvas">
+              <img id="prototype-image" alt="HYPE app screen" />
+              <div id="hotspot-layer" class="hotspot-layer"></div>
+            </div>
+          </div>
+          <img class="phone-statusbar" src="./assets/hype/status-bar.png" alt="" aria-hidden="true" />
+          <img class="phone-tabbar" id="phone-tabbar" src="./assets/hype/tab-bar.png" alt="" aria-hidden="true" />
+          <div id="fixed-hotspot-layer" class="fixed-hotspot-layer"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
