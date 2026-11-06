@@ -643,6 +643,63 @@ function screenShowcase(data, caseId) {
   `;
 }
 
+const contextNotes = {
+  manager: {
+    en: {
+      label: "Scope & reasoning", title: "Make ownership visible at every step.",
+      scope: "Public evidence: a CRM interface prototype and its connected screen sequence. Original interface design by Vladislav Kurmanaev; case presentation updated with AI assistance. No production metrics or completed research results are claimed in this public case.",
+      decisions: [
+        ["Separate intake from active deals", "An unassigned lead needs an owner before it becomes regular follow-up work.", "A separate queue adds navigation but makes unassigned work visible.", "Can a manager find and assign an incoming lead without opening unrelated deal screens?"],
+        ["Show the record before changing ownership", "Lead details keep contact context, status and notes together before an assignment.", "A focused modal keeps the queue available, but needs clear confirmation and a way to cancel.", "Can the manager identify the selected lead and proposed owner before confirming?"],
+        ["Make status changes explicit", "A dedicated status action connects the record to pipeline movement.", "One more interaction can reduce accidental changes; this needs validation with frequent users.", "Can the user distinguish the current status from the proposed next status?"],
+      ],
+      nextTitle: "What I would validate next", next: "Recruit people who actually distribute leads. Ask them to assign an unowned lead, reassign it after a workload change and explain the team view. Observe task completion, wrong-owner changes and recovery. These are proposed tasks, not completed user tests.",
+      headings: ["Decision", "Reason", "Trade-off", "Validation question"],
+    },
+    ru: {
+      label: "Контекст и решения", title: "Ответственный понятен на каждом шаге.",
+      scope: "Публичные материалы: прототип CRM и связанная последовательность экранов. Автор исходных интерфейсов — Владислав Курманаев; подача кейса обновлена с AI-помощью. Здесь не заявляются производственные метрики или результаты проведённых исследований.",
+      decisions: [
+        ["Отделить входящие лиды от сделок", "Сначала у нового лида появляется ответственный, затем начинается регулярное сопровождение.", "Отдельная очередь добавляет переход, но делает неназначенные лиды заметными.", "Может ли менеджер найти и назначить новый лид без просмотра посторонних сделок?"],
+        ["Показать контекст перед назначением", "Карточка объединяет контакты, статус и заметки перед сменой ответственного.", "Модальное окно сохраняет контекст очереди, но требует понятного подтверждения и отмены.", "Понятно ли, какой лид и какой новый ответственный выбраны перед подтверждением?"],
+        ["Сделать смену статуса явной", "Отдельное действие связывает запись с движением по воронке.", "Дополнительный шаг может сократить случайные изменения; это предстоит проверить с частыми пользователями.", "Различает ли пользователь текущий и предлагаемый следующий статус?"],
+      ],
+      nextTitle: "Следующая проверка", next: "Пригласить людей, которые распределяют лиды. Дать задания назначить новый лид, переназначить его при изменении загрузки и объяснить командный обзор. Наблюдать завершение задач, ошибки назначения и восстановление. Это план, а не проведённые пользовательские тесты.",
+      headings: ["Решение", "Обоснование", "Компромисс", "Вопрос проверки"],
+    },
+  },
+  mirem: {
+    en: {
+      label: "Scope & reasoning", title: "Support the next buying decision.",
+      scope: "The public case links to a published store and shows its desktop and mobile interfaces. Original interface design by Vladislav Kurmanaev; case presentation updated with AI assistance. Commercial analytics and confidential client details are not reproduced here.",
+      decisions: [
+        ["Give the catalog a clear entry point", "A specialized assortment needs a recognizable category structure before individual items can be compared.", "Recommendations can support discovery but should not hide the main catalog.", "Can a first-time buyer reach a relevant product category from the homepage?"],
+        ["Keep product facts near the buying action", "Images, price and product details support the add-to-cart decision.", "More information can help evaluation but increases scanning effort; hierarchy matters.", "Can the buyer find the information needed to choose between two items?"],
+        ["Adapt navigation for mobile", "Search and bottom navigation make repeated catalog and cart access easier to reach.", "Persistent navigation takes screen space; its value depends on the shopping task.", "Can a mobile buyer return to the catalog and find their cart without losing context?"],
+      ],
+      nextTitle: "Validation and measurement plan", next: "Test category discovery, product comparison and cart recovery on mobile and desktop. Measure completion and observed friction before choosing an experiment. Any conversion study would need agreed event definitions, a baseline and an appropriate comparison period; no uplift is claimed here.",
+      headings: ["Decision", "Reason", "Trade-off", "Validation question"],
+    },
+    ru: {
+      label: "Контекст и решения", title: "Поддержать следующий шаг покупки.",
+      scope: "В публичном кейсе есть ссылка на опубликованный магазин, desktop- и mobile-интерфейсы. Автор исходного дизайна — Владислав Курманаев; подача кейса обновлена с AI-помощью. Коммерческая аналитика и конфиденциальные данные клиента здесь не раскрываются.",
+      decisions: [
+        ["Сделать вход в каталог заметным", "В специализированном ассортименте сначала нужно найти подходящую категорию, затем сравнивать товары.", "Рекомендации помогают знакомству с ассортиментом, но не должны скрывать каталог.", "Может ли новый покупатель перейти с главной в подходящую категорию?"],
+        ["Собрать факты рядом с покупкой", "Изображения, цена и характеристики поддерживают решение добавить товар в корзину.", "Больше информации помогает сравнению, но увеличивает время просмотра; нужна иерархия.", "Может ли покупатель найти данные для выбора между двумя товарами?"],
+        ["Адаптировать мобильную навигацию", "Поиск и нижнее меню упрощают повторный переход к каталогу и корзине.", "Постоянное меню занимает место; его пользу нужно оценивать в конкретном сценарии покупки.", "Может ли мобильный покупатель вернуться к каталогу и найти корзину без потери контекста?"],
+      ],
+      nextTitle: "План проверки и измерений", next: "Проверить поиск категории, сравнение товаров и возврат к корзине на телефоне и компьютере. Наблюдать завершение задач и затруднения. Для эксперимента с конверсией нужны определение событий, исходные данные и корректный период сравнения; рост конверсии здесь не заявляется.",
+      headings: ["Решение", "Обоснование", "Компромисс", "Вопрос проверки"],
+    },
+  },
+};
+
+function renderContext(caseId, lang) {
+  const note = contextNotes[caseId]?.[lang];
+  if (!note) return "";
+  return `<section class="case-context case-shell"><p class="eyebrow">${note.label}</p><h2>${note.title}</h2><p class="scope-note">${note.scope}</p><div class="reason-grid">${note.decisions.map(decision => `<article>${decision.map((text, i) => `<div><span>${note.headings[i]}</span>${i === 0 ? `<h3>${text}</h3>` : `<p>${text}</p>`}</div>`).join("")}</article>`).join("")}</div><div class="validation-plan"><h3>${note.nextTitle}</h3><p>${note.next}</p></div></section>`;
+}
+
 function render(lang) {
   const caseId = getCaseId();
 
@@ -692,6 +749,8 @@ function render(lang) {
         )
         .join("")}
     </section>
+
+    ${renderContext(caseId, lang)}
 
     <section class="screen-section case-shell">
       <p class="eyebrow">${data.visualLabel}</p>
