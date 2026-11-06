@@ -13,7 +13,7 @@ const cases = {
       info: [
         ["01", "Task", "Turn a broad manager account into a clear CRM flow: receive leads, distribute them between agents, update statuses, and keep team performance visible."],
         ["02", "Logic", "I structured the prototype as one working scenario: overview, lead intake, lead details, agent assignment, status change, deals, agents, and team performance."],
-        ["03", "Result", "The case now reads as a product prototype rather than a folder of separate screens, showing how a manager moves from incoming leads to daily control."],
+        ["03", "Public outcome", "A connected nine-screen CRM prototype: incoming leads, record details, assignment, status updates, deals and team oversight. This public case demonstrates interface logic; confidential client analytics are not disclosed."],
       ],
       screensTitle: "Prototype flow",
       screens: [
@@ -52,7 +52,7 @@ const cases = {
       info: [
         ["01", "Задача", "Собрать широкий кабинет менеджера в понятный CRM-сценарий: принять лиды, распределить их между агентами, обновлять статусы и видеть эффективность команды."],
         ["02", "Логика", "Я выстроил прототип как один рабочий путь: обзор, приём лидов, карточка лида, назначение агента, смена статуса, сделки, агенты и команды."],
-        ["03", "Результат", "Кейс теперь читается как продуктовый прототип, а не как папка отдельных экранов: видно, как менеджер проходит путь от входящих лидов до ежедневного контроля."],
+        ["03", "Публичный результат", "Связанный CRM-прототип из девяти экранов: входящие лиды, карточка, назначение, смена статуса, сделки и обзор команды. Публичный кейс показывает логику интерфейсов; конфиденциальная аналитика клиента не раскрывается."],
       ],
       screensTitle: "Сценарий прототипа",
       screens: [
@@ -647,7 +647,7 @@ const contextNotes = {
   manager: {
     en: {
       label: "Scope & reasoning", title: "Make ownership visible at every step.",
-      scope: "Public evidence: a CRM interface prototype and its connected screen sequence. Original interface design by Vladislav Kurmanaev; case presentation updated with AI assistance. No production metrics or completed research results are claimed in this public case.",
+      scope: "I designed the manager-facing CRM interfaces: information hierarchy, lead-management flows, screen layouts and interaction states. This public case presents a connected nine-screen prototype. Client-specific analytics remain confidential.",
       decisions: [
         ["Separate intake from active deals", "An unassigned lead needs an owner before it becomes regular follow-up work.", "A separate queue adds navigation but makes unassigned work visible.", "Can a manager find and assign an incoming lead without opening unrelated deal screens?"],
         ["Show the record before changing ownership", "Lead details keep contact context, status and notes together before an assignment.", "A focused modal keeps the queue available, but needs clear confirmation and a way to cancel.", "Can the manager identify the selected lead and proposed owner before confirming?"],
@@ -655,10 +655,16 @@ const contextNotes = {
       ],
       nextTitle: "What I would validate next", next: "Recruit people who actually distribute leads. Ask them to assign an unowned lead, reassign it after a workload change and explain the team view. Observe task completion, wrong-owner changes and recovery. These are proposed tasks, not completed user tests.",
       headings: ["Decision", "Reason", "Trade-off", "Validation question"],
+      details: [
+        ["Reusable interface logic", "The screens share a practical vocabulary: a lead table for scanning, a record card for context, an assignee-selection modal, explicit status changes, and agent/team summaries. The same lead, owner and status should retain consistent names across views. These shared patterns provide a consistent vocabulary for screen design and handoff."],
+        ["States to specify before implementation", "The happy path is lead intake → record review → agent assignment → status change → team overview. A delivery specification should also define an empty intake queue, no filter matches, failed loading or assignment, missing required fields, unavailable agents and conflicting updates. The next specification step is to define the expected behavior for each of these edge cases."],
+        ["Developer handoff checklist", "For assignment: state which lead IDs are selected, whether one or multiple records can change owner, which agents are available, what confirms success and what happens after failure. For status changes: define permitted transitions, required information and where the new status appears. Agree these rules with product and engineering before implementation."],
+        ["AI assistance in this public case", "For this portfolio update, AI helped structure the case narrative, examine possible edge cases and draft validation questions. I designed the original interface layouts."],
+      ],
     },
     ru: {
       label: "Контекст и решения", title: "Ответственный понятен на каждом шаге.",
-      scope: "Публичные материалы: прототип CRM и связанная последовательность экранов. Автор исходных интерфейсов — Владислав Курманаев; подача кейса обновлена с AI-помощью. Здесь не заявляются производственные метрики или результаты проведённых исследований.",
+      scope: "Я спроектировал интерфейсы CRM для менеджера: информационную иерархию, сценарии работы с лидами, компоновку экранов и состояния взаимодействия. Публичный кейс показывает связанный прототип из девяти экранов. Аналитика и конфиденциальные детали клиента не раскрываются.",
       decisions: [
         ["Отделить входящие лиды от сделок", "Сначала у нового лида появляется ответственный, затем начинается регулярное сопровождение.", "Отдельная очередь добавляет переход, но делает неназначенные лиды заметными.", "Может ли менеджер найти и назначить новый лид без просмотра посторонних сделок?"],
         ["Показать контекст перед назначением", "Карточка объединяет контакты, статус и заметки перед сменой ответственного.", "Модальное окно сохраняет контекст очереди, но требует понятного подтверждения и отмены.", "Понятно ли, какой лид и какой новый ответственный выбраны перед подтверждением?"],
@@ -666,6 +672,12 @@ const contextNotes = {
       ],
       nextTitle: "Следующая проверка", next: "Пригласить людей, которые распределяют лиды. Дать задания назначить новый лид, переназначить его при изменении загрузки и объяснить командный обзор. Наблюдать завершение задач, ошибки назначения и восстановление. Это план, а не проведённые пользовательские тесты.",
       headings: ["Решение", "Обоснование", "Компромисс", "Вопрос проверки"],
+      details: [
+        ["Повторяемая логика интерфейса", "Экраны используют общий набор паттернов: таблица лидов для просмотра, карточка для контекста, модальное окно выбора агента, явная смена статуса и сводки по агентам и командам. Один и тот же лид, ответственный и статус должны называться одинаково в разных представлениях. Эти повторяемые паттерны формируют общий язык экранов и спецификации для разработки."],
+        ["Состояния для спецификации", "Основной путь: приём лида → просмотр карточки → назначение агента → смена статуса → обзор команды. До реализации также нужно описать пустую очередь, отсутствие результатов фильтрации, ошибку загрузки или назначения, незаполненные поля, недоступного агента и конфликт обновлений. Следующий шаг спецификации — определить ожидаемое поведение для каждого из этих пограничных случаев."],
+        ["Передача в разработку", "Для назначения нужно определить выбранные ID лидов, одиночное или массовое изменение, доступных агентов, подтверждение успеха и восстановление после ошибки. Для статусов — разрешённые переходы, обязательные данные и отображение нового статуса. Эти правила согласуются с продуктовой командой и разработкой до реализации."],
+        ["AI-помощь в публичном описании", "При обновлении портфолио AI помог структурировать описание кейса, разобрать возможные пограничные случаи и составить вопросы проверки. Исходные интерфейсы я спроектировал самостоятельно."],
+      ],
     },
   },
   mirem: {
@@ -697,7 +709,7 @@ const contextNotes = {
 function renderContext(caseId, lang) {
   const note = contextNotes[caseId]?.[lang];
   if (!note) return "";
-  return `<section class="case-context case-shell"><p class="eyebrow">${note.label}</p><h2>${note.title}</h2><p class="scope-note">${note.scope}</p><div class="reason-grid">${note.decisions.map(decision => `<article>${decision.map((text, i) => `<div><span>${note.headings[i]}</span>${i === 0 ? `<h3>${text}</h3>` : `<p>${text}</p>`}</div>`).join("")}</article>`).join("")}</div><div class="validation-plan"><h3>${note.nextTitle}</h3><p>${note.next}</p></div></section>`;
+  return `<section class="case-context case-shell"><p class="eyebrow">${note.label}</p><h2>${note.title}</h2><p class="scope-note">${note.scope}</p><div class="reason-grid">${note.decisions.map(decision => `<article>${decision.map((text, i) => `<div><span>${note.headings[i]}</span>${i === 0 ? `<h3>${text}</h3>` : `<p>${text}</p>`}</div>`).join("")}</article>`).join("")}</div>${note.details ? `<div class="case-detail-text">${note.details.map(([title, body])=>`<h3>${title}</h3><p>${body}</p>`).join("")}</div>` : ""}<div class="validation-plan"><h3>${note.nextTitle}</h3><p>${note.next}</p></div></section>`;
 }
 
 function render(lang) {

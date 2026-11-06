@@ -426,8 +426,6 @@ Object.assign(content.ru.hero, {
   availability: "Вьетнам · UTC+7 · Английский B2 · Удалённо или релокация",
   primary: "Смотреть проекты", cv: "Скачать CV ↗",
 });
-content.en.feature = {label: "NEW EXPLORATION / 2026", body: "B2B e-commerce · Review workflows · Design system", status: "Self-initiated concept · AI-assisted prototype"};
-content.ru.feature = {label: "НОВЫЙ КОНЦЕПТ / 2026", body: "B2B e-commerce · Сценарий проверки · Дизайн-система", status: "Самостоятельный концепт · Прототип с AI-помощью"};
 content.en.introTags = ["SaaS & CRM", "E-commerce", "Web & mobile", "Design systems"];
 content.ru.introTags = ["SaaS и CRM", "E-commerce", "Web и mobile", "Дизайн-системы"];
 content.en.metrics = [["5+ years", "Across UX/UI, agency projects and visual design"], ["Web + mobile", "CRM, e-commerce and interactive prototypes"], ["English B2", "Russian native · International agency experience"], ["UTC+7", "Based in Vietnam · Open to relocation"]];
@@ -437,25 +435,15 @@ content.ru.profile.title = "От сложной задачи к понятном
 content.en.profileCards = [["Role", "Product / UX/UI Designer"], ["Focus", "CRM, SaaS, e-commerce & mobile"], ["Experience", "Agency projects, UI kits & developer collaboration"], ["Location", "Vietnam · UTC+7 · Remote / relocation"]];
 content.ru.profileCards = [["Роль", "Product / UX/UI Designer"], ["Фокус", "CRM, SaaS, e-commerce и mobile"], ["Опыт", "Агентские проекты, UI-киты и работа с разработкой"], ["Локация", "Вьетнам · UTC+7 · Удалённо / релокация"]];
 content.en.work.title = "Selected work, with context.";
-content.en.work.body = "Product workflows first. Each project is labelled as a live website, prototype, or self-initiated concept.";
+content.en.work.body = "Product workflows first. Each project is labelled as a live website or an interface prototype.";
 content.ru.work.title = "Проекты и контекст решений.";
-content.ru.work.body = "Сначала продуктовые сценарии. У каждого проекта указан статус: работающий сайт, прототип или самостоятельный концепт.";
+content.ru.work.body = "Сначала продуктовые сценарии. У каждого проекта указан статус: работающий сайт или прототип интерфейса.";
 content.en.contact.body = "Based in Vietnam (UTC+7). English B2. Open to remote product and UX/UI roles, or relocation.";
 content.ru.contact.body = "Сейчас во Вьетнаме (UTC+7). Английский B2. Рассматриваю удалённые Product / UX/UI роли и релокацию.";
 
 for (const lang of ["en", "ru"]) {
   const data = content[lang];
   const [websites, products, mobile, visuals] = data.categories;
-  products.projects.unshift({
-    title: "Catalog Desk",
-    type: lang === "en" ? "Self-initiated concept / B2B e-commerce" : "Самостоятельный концепт / B2B e-commerce",
-    image: "./assets/catalog-cover.svg", link: "./catalog-case.html",
-    action: lang === "en" ? "Read the case" : "Читать кейс",
-    secondaryLink: "./catalog-app.html", secondaryAction: lang === "en" ? "Try prototype" : "Открыть прототип",
-    accent: "green",
-    bullets: lang === "en" ? ["Review, edit and approve catalog updates", "Human control of simulated AI suggestions", "Responsive UI, components and recovery states"] : ["Проверка, редактирование и подтверждение изменений", "Контроль AI-подсказок человеком", "Адаптивный UI, компоненты и обработка ошибок"],
-    note: lang === "en" ? "AI-assisted portfolio exploration. Synthetic data, simulated suggestions; no client engagement or measured business results." : "Концепт для портфолио с AI-помощью. Синтетические данные и имитация подсказок; не клиентский проект и не измеренный бизнес-результат.",
-  });
   data.categories = [products, mobile, websites, visuals];
   data.categories.forEach((category, i) => { category.number = String(i + 1).padStart(2, "0"); });
 }
